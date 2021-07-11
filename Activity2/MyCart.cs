@@ -143,14 +143,6 @@ namespace Activity2
                 if (quantityOrdered.GetType() != typeof(int))
                     throw new ArgumentException();
 
-            }
-            catch (ArgumentException)
-            {
-                Console.WriteLine("Invalid Entry:");
-            }
-
-            finally
-            {
                 Customer customer = new Customer(customerName, address, dateOfBirth, emailId, g, password, customerType);
                 Product product = new Product(productName, description, price);
                 Purchase purchase = new Purchase(quantityOrdered, address, dateOfPurchase, paymentType);
@@ -161,7 +153,22 @@ namespace Activity2
                 Console.WriteLine($"Seller details:\n \nSeller Name: {seller.SellerName} \nSeller Id: {seller.SellerId}\nSeller loc: {seller.SellerLocations}");
                 Console.WriteLine($"\n\nProduct details:\n\nProduct Name: {product.ProductName} \nProduct Id: {product.ProductId} \nProduct Description: {product.Description} \nPrice: {product.Price} ");
                 Console.WriteLine($"\n\n Purchase details: \n\nPurchase Id: {purchase.PurchaseId} \nShipping Address: {purchase.ShippingAddress} \nPurchase Date: {purchase.DateOfPurchase} \nPurchase quantity : {purchase.QuantityOrdered} \nPayment Type: {purchase.PaymentType} \nBill Amount: {purchase.CalculateBillAmount(price)} \nRounded off Amount: {Purchase.RoundOffBill(purchase.CalculateBillAmount(price))}");
+
             }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Invalid Entry:");
+            }
+
+            finally
+            {
+                Console.ReadLine();
+                System.Environment.Exit(1000);
+            }
+
+            
+               
+            
 
 
         }
