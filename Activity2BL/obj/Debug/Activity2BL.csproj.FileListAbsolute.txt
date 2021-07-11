@@ -1,0 +1,6 @@
+C:\Users\ROHINI NAIR\source\repos\Activity2BL\bin\Debug\Activity2BL.dll
+C:\Users\ROHINI NAIR\source\repos\Activity2BL\bin\Debug\Activity2BL.pdb
+C:\Users\ROHINI NAIR\source\repos\Activity2BL\obj\Debug\Activity2BL.csproj.AssemblyReference.cache
+C:\Users\ROHINI NAIR\source\repos\Activity2BL\obj\Debug\Activity2BL.csproj.CoreCompileInputs.cache
+C:\Users\ROHINI NAIR\source\repos\Activity2BL\obj\Debug\Activity2BL.dll
+C:\Users\ROHINI NAIR\source\repos\Activity2BL\obj\Debug\Activity2BL.pdb
