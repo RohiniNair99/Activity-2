@@ -71,6 +71,11 @@ namespace Activity2
                 Console.WriteLine("Enter the gender:");
                 g.gender = Console.ReadLine();
 
+                Console.WriteLine("Enter Email ID:");
+                emailId = Console.ReadLine();
+                if (emailId == null || !emailId.Contains('@')|| !emailId.Contains('.'))
+                    throw new ArgumentException();
+
                 Console.WriteLine("Enter Product Name:");
                 productName = Console.ReadLine();
                 if (productName == null)
@@ -118,10 +123,7 @@ namespace Activity2
                         else
                             throw new ArgumentException();
                     }
-              /*  Console.WriteLine("Enter Seller ID:");
-                sellerId = Console.ReadLine();
-                if (sellerId == null )
-                    throw new ArgumentException();*/
+                
 
                 Console.WriteLine("Enter number of locations seller available:");
                 int numloc = Convert.ToInt32(Console.ReadLine());
@@ -151,7 +153,7 @@ namespace Activity2
 
                 Console.WriteLine($"\n\nCustomer details:\n \nCustomer Name: {customer.CustomerName} \nCustomer Id: {customer.CustomerId} \nCustomer Address: {customer.Address} \nDate of Birth: {customer.DateOfBirth} \nEmail Id: {customer.EmailId} \nGender: {g.gender} \nPassword: {customer.Password} \nCustomer Type: {customer.CustomerType}");
                 Console.WriteLine($"\n\nSeller details:\n \nSeller Name: {seller.SellerName} \nSeller Id: {seller.SellerId}\nSeller loc:");
-                for(int loop=0;loop<seller.SellerLocations.Length;loop++)
+                for(int loop=0;loop<numloc;loop++)
                 {
                     Console.WriteLine($"Location{loop+1}:{seller.SellerLocations[loop]}");
                 }
