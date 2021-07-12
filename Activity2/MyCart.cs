@@ -17,7 +17,7 @@ namespace Activity2
             Gender g = new Gender("");
             string productName = "", description = "";
             double price = 0.0D;
-            string sellerId = "", sellerName = "";
+            string  sellerName = "";
             int quantityOrdered = 0;
             DateTime dateOfPurchase=new DateTime();
             string paymentType="Regular";
@@ -39,7 +39,7 @@ namespace Activity2
                     }
                 Console.WriteLine("Enter Customer Address:");
                 address = Console.ReadLine();
-                if (address == null && address.GetType() != typeof(string))
+                if (address == null)
                     throw new ArgumentException();
 
                 Console.WriteLine("Enter Customer Type:");
@@ -55,13 +55,13 @@ namespace Activity2
                             throw new ArgumentException();
                     }
                 Console.WriteLine("Enter Password:");
-                address = Console.ReadLine();
-                if (address == null && address.GetType() != typeof(string))
+                password = Console.ReadLine();
+                if (password == null && password.GetType() != typeof(string))
                     throw new ArgumentException();
 
                 Console.WriteLine("Enter PaymentType:");
                 paymentType = Console.ReadLine();
-                if (address == null && address.GetType() != typeof(string))
+                if (paymentType == null && paymentType.GetType() != typeof(string))
                     throw new ArgumentException();
 
                 Console.WriteLine("Enter Date Of Birth:");
@@ -118,10 +118,10 @@ namespace Activity2
                         else
                             throw new ArgumentException();
                     }
-                Console.WriteLine("Enter Seller ID:");
+              /*  Console.WriteLine("Enter Seller ID:");
                 sellerId = Console.ReadLine();
-                if (sellerId == null && sellerId.GetType() != typeof(string))
-                    throw new ArgumentException();
+                if (sellerId == null )
+                    throw new ArgumentException();*/
 
                 Console.WriteLine("Enter number of locations seller available:");
                 int numloc = Convert.ToInt32(Console.ReadLine());
@@ -134,9 +134,9 @@ namespace Activity2
                 }
 
 
-                sellerId = Console.ReadLine();
+               /* sellerId = Console.ReadLine();
                 if (sellerId == null && sellerId.GetType() != typeof(string))
-                    throw new ArgumentException();
+                    throw new ArgumentException();*/
 
                 Console.WriteLine("Enter Quantity Entered:");
                 quantityOrdered = Convert.ToInt32(Console.ReadLine());
@@ -149,8 +149,12 @@ namespace Activity2
                 Seller seller = new Seller(sellerName);
                 seller.SellerLocations = sellerLoc;
 
-                Console.WriteLine($"Customer details:\n \nCustomer Name: {customer.CustomerName} \nCustomer Id: {customer.CustomerId} \nCustomer Address: {customer.Address} \nDate of Birth: {customer.DateOfBirth} \nEmail Id: {customer.EmailId} \nGender: {customer.Gender} \nPassword: {customer.Password} \nCustomer Type: {customer.CustomerType}");
-                Console.WriteLine($"Seller details:\n \nSeller Name: {seller.SellerName} \nSeller Id: {seller.SellerId}\nSeller loc: {seller.SellerLocations}");
+                Console.WriteLine($"\n\nCustomer details:\n \nCustomer Name: {customer.CustomerName} \nCustomer Id: {customer.CustomerId} \nCustomer Address: {customer.Address} \nDate of Birth: {customer.DateOfBirth} \nEmail Id: {customer.EmailId} \nGender: {g.gender} \nPassword: {customer.Password} \nCustomer Type: {customer.CustomerType}");
+                Console.WriteLine($"\n\nSeller details:\n \nSeller Name: {seller.SellerName} \nSeller Id: {seller.SellerId}\nSeller loc:");
+                for(int loop=0;loop<seller.SellerLocations.Length;loop++)
+                {
+                    Console.WriteLine($"Location{loop+1}:{seller.SellerLocations[loop]}");
+                }
                 Console.WriteLine($"\n\nProduct details:\n\nProduct Name: {product.ProductName} \nProduct Id: {product.ProductId} \nProduct Description: {product.Description} \nPrice: {product.Price} ");
                 Console.WriteLine($"\n\n Purchase details: \n\nPurchase Id: {purchase.PurchaseId} \nShipping Address: {purchase.ShippingAddress} \nPurchase Date: {purchase.DateOfPurchase} \nPurchase quantity : {purchase.QuantityOrdered} \nPayment Type: {purchase.PaymentType} \nBill Amount: {purchase.CalculateBillAmount(price)} \nRounded off Amount: {Purchase.RoundOffBill(purchase.CalculateBillAmount(price))}");
 
